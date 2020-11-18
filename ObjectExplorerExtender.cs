@@ -86,23 +86,57 @@ namespace SsmsSchemaFolders
                 return null;
         }
 
-        private String GetNodeSchema(TreeNode node)
-        {
+        //private String GetNodeSchema(TreeNode node)
+        //{
+        //    var ni = GetNodeInformation(node);
+        //    if (ni != null)
+        //    {
+        //        // parse ni.Context = Server[@Name='NR-DEV\SQL2008R2EXPRESS']/Database[@Name='tempdb']/Table[@Name='test.''escape''[value]' and @Schema='dbo']
+        //        // or compare ni.Name vs ni.InvariantName = ObjectName vs SchemaName.ObjectName
+
+        //        //var match = NodeSchemaRegex.Match(ni.Context);
+        //        //if (match.Success)
+        //        //    return match.Groups[1].Value;
+
+        //        if (ni.InvariantName.EndsWith("." + ni.Name))
+        //            return ni.InvariantName.Replace("." + ni.Name, String.Empty);
+        //    }
+        //    return null;
+        //}
+
+        private String GetNodeSchema(TreeNode node) {
+
             var ni = GetNodeInformation(node);
-            if (ni != null)
-            {
-                // parse ni.Context = Server[@Name='NR-DEV\SQL2008R2EXPRESS']/Database[@Name='tempdb']/Table[@Name='test.''escape''[value]' and @Schema='dbo']
-                // or compare ni.Name vs ni.InvariantName = ObjectName vs SchemaName.ObjectName
 
-                //var match = NodeSchemaRegex.Match(ni.Context);
-                //if (match.Success)
-                //    return match.Groups[1].Value;
-
-                if (ni.InvariantName.EndsWith("." + ni.Name))
+            if (ni != null) {
+                if (ni.Name.ToUpper().StartsWith("GET"))
+                {
+                    return ni.InvariantName.Replace("." + ni.Name, String.Empty) + '.' + "Get";
+                }
+                else if (ni.Name.ToUpper().StartsWith("INSERT"))
+                {
+                    return ni.InvariantName.Replace("." + ni.Name, String.Empty) + '.' + "Insert";
+                }
+                else if (ni.Name.ToUpper().StartsWith("UPDATE"))
+                {
+                    return ni.InvariantName.Replace("." + ni.Name, String.Empty) + '.' + "Update";
+                }
+                else if (ni.Name.ToUpper().StartsWith("DELETE"))
+                {
+                    return ni.InvariantName.Replace("." + ni.Name, String.Empty) + '.' + "Delete";
+                }
+                else if (ni.Name.ToUpper().StartsWith("PROCESS"))
+                {
+                    return ni.InvariantName.Replace("." + ni.Name, String.Empty) + '.' + "Process";
+                }
+                else
+                {
                     return ni.InvariantName.Replace("." + ni.Name, String.Empty);
+                }
             }
             return null;
         }
+
 
         /// <summary>
         /// Removes schema name from object node.
