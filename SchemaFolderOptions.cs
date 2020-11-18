@@ -36,5 +36,11 @@
         [DescriptionResources(nameof(SchemaFolderOptions) + nameof(RenameNode))]
         [DefaultValue(false)]
         public bool RenameNode { get; set; } = false;
+
+        [CategoryResources(nameof(SchemaFolderOptions) + "FolderDisplayOptions")]
+        [DisplayNameResources(nameof(SchemaFolderOptions) + nameof(TestNode))]
+        [DescriptionResources(nameof(SchemaFolderOptions) + nameof(TestNode))]
+        [DefaultValue(false)]
+        public string TestNode { get; set; } = "Ahmed";
     }
 }

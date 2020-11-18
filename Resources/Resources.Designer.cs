@@ -124,6 +124,15 @@ namespace SsmsSchemaFolders.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This is a test desc.
+        /// </summary>
+        internal static string PropertyDescriptionSchemaFolderOptionsTestNode {
+            get {
+                return ResourceManager.GetString("PropertyDescriptionSchemaFolderOptionsTestNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use the icon of the last child node as the folder icon. If false then use the parent node (i.e. folder) icon..
         /// </summary>
         internal static string PropertyDescriptionSchemaFolderOptionsUseObjectIcon {
@@ -165,6 +174,15 @@ namespace SsmsSchemaFolders.Resources {
         internal static string PropertyDisplayNameSchemaFolderOptionsRenameNode {
             get {
                 return ResourceManager.GetString("PropertyDisplayNameSchemaFolderOptionsRenameNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test Node .
+        /// </summary>
+        internal static string PropertyDisplayNameSchemaFolderOptionsTestNode {
+            get {
+                return ResourceManager.GetString("PropertyDisplayNameSchemaFolderOptionsTestNode", resourceCulture);
             }
         }
         
