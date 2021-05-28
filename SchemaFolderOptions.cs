@@ -1,12 +1,21 @@
 ﻿namespace SsmsSchemaFolders
 {
-   
     using System.ComponentModel;
     using Localization;
     using Microsoft.VisualStudio.Shell;
-   
+    using System.Windows.Forms;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System;
+    using System.Reflection;
+
     public class SchemaFolderOptions : DialogPage, ISchemaFolderOptions
     {
+        //public static string filePath = @"C:\Users\ahmed.noor\Desktop\SSMS-Schema-Folders\Prefix.txt";
+
+        static string filePath = Resource.txtFile;
+
         [CategoryResources(nameof(SchemaFolderOptions) + "Active")]
         [DisplayNameResources(nameof(SchemaFolderOptions) + nameof(Enabled))]
         [DescriptionResources(nameof(SchemaFolderOptions) + nameof(Enabled))]
@@ -38,9 +47,12 @@
         public bool RenameNode { get; set; } = false;
 
         [CategoryResources(nameof(SchemaFolderOptions) + "FolderDisplayOptions")]
-        [DisplayNameResources(nameof(SchemaFolderOptions) + nameof(TestNode))]
-        [DescriptionResources(nameof(SchemaFolderOptions) + nameof(TestNode))]
-        [DefaultValue(false)]
-        public string TestNode { get; set; } = "Ahmed";
+        [DisplayNameResources(nameof(SchemaFolderOptions) + nameof(Prefix))]
+        [DescriptionResources(nameof(SchemaFolderOptions) + nameof(Prefix))]
+        [DefaultValue("dbo")]
+        public string[] Prefix { get; set; } = File.ReadAllLines(filePath);
+
+
     }
 }
+ 

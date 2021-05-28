@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace SsmsSchemaFolders
 {
@@ -9,5 +10,7 @@ namespace SsmsSchemaFolders
         TreeView GetObjectExplorerTreeView();
         void RenameNode(TreeNode node);
         int ReorganizeNodes(TreeNode node, string nodeTag);
+        //List<string> TestNode(string node);
+        string[] Prefix(string node);
     }
 }

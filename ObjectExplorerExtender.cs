@@ -4,6 +4,11 @@ using System.Collections.Generic;
 //using System.Text.RegularExpressions;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Linq;
+using System.ComponentModel;
+using System.Collections.Specialized;
+using System.IO;
+
 
 namespace SsmsSchemaFolders
 {
@@ -15,8 +20,15 @@ namespace SsmsSchemaFolders
 
         private ISchemaFolderOptions Options { get; }
         private IServiceProvider Package { get; }
+        public StringCollection Test { get; private set; }
+        // public List<string> prefix = new List<string>();
         //private Regex NodeSchemaRegex;
 
+        //public string filePath = @"C:\Users\ahmed.noor\Desktop\SSMS-Schema-Folders\Prefix.txt";
+
+        //string filePath = ResourceSet.txtFile;
+         string filePath = Resource.txtFile;
+         
 
         /// <summary>
         /// 
@@ -25,8 +37,11 @@ namespace SsmsSchemaFolders
         {
             Package = package;
             Options = options;
+          
             //NodeSchemaRegex = new Regex(@"@Schema='((''|[^'])+)'");
         }
+
+        
 
 
         /// <summary>
@@ -68,6 +83,8 @@ namespace SsmsSchemaFolders
             return result;
         }
 
+  
+
         public bool GetNodeExpanding(TreeNode node)
         {
             var lazyNode = node as ILazyLoadingNode;
@@ -85,83 +102,51 @@ namespace SsmsSchemaFolders
             else
                 return null;
         }
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //private String GetNodeSchema(TreeNode node)
-        //{
-        //    var ni = GetNodeInformation(node);
-        //    if (ni != null)
-        //    {
-        //        // parse ni.Context = Server[@Name='NR-DEV\SQL2008R2EXPRESS']/Database[@Name='tempdb']/Table[@Name='test.''escape''[value]' and @Schema='dbo']
-        //        // or compare ni.Name vs ni.InvariantName = ObjectName vs SchemaName.ObjectName
 
-        //        //var match = NodeSchemaRegex.Match(ni.Context);
-        //        //if (match.Success)
-        //        //    return match.Groups[1].Value;
-
-        //        if (ni.InvariantName.EndsWith("." + ni.Name))
-        //            return ni.InvariantName.Replace("." + ni.Name, String.Empty);
-        //    }
-        //    return null;
-        //}
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //private String GetNodeSchema(TreeNode node) {
-
-        //    var ni = GetNodeInformation(node);
-
-        //    if (ni != null) {
-        //        if (ni.Name.ToUpper().StartsWith("GET"))
-        //        {
-        //            if (ni.Name.ToUpper().StartsWith("GETCHHS") || (ni.Name.ToUpper().StartsWith("GET_CHHS")))
-        //            {
-        //                return ni.InvariantName.Replace("." + ni.Name, String.Empty) + '.' + "GetCHHS";
-        //            }
-        //            return ni.InvariantName.Replace("." + ni.Name, String.Empty) + '.' + "GET";
-        //        }
-        //        else if (ni.Name.ToUpper().StartsWith("INSERT"))
-        //        {
-        //            return ni.InvariantName.Replace("." + ni.Name, String.Empty) + '.' + "Insert";
-        //        }
-        //        else if (ni.Name.ToUpper().StartsWith("UPDATE"))
-        //        {
-        //            return ni.InvariantName.Replace("." + ni.Name, String.Empty) + '.' + "Update";
-        //        }
-        //        else if (ni.Name.ToUpper().StartsWith("DELETE"))
-        //        {
-        //            return ni.InvariantName.Replace("." + ni.Name, String.Empty) + '.' + "Delete";
-        //        }
-        //        else if (ni.Name.ToUpper().StartsWith("PROCESS"))
-        //        {
-        //            return ni.InvariantName.Replace("." + ni.Name, String.Empty) + '.' + "Process";
-        //        }
-        //        else
-        //        {
-        //            return ni.InvariantName.Replace("." + ni.Name, String.Empty);
-        //        }
-        //    }
-        //    return null;
-        //}
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        public string[] Prefix(string node)
+        {
+            
+            throw new NotImplementedException();
+           
+        }
 
         private String GetNodeSchema(TreeNode node)
         {
-            string[] Prefix = new string[] { "Get", "Insert", "Update", "Delete", "Process" };
             var ni = GetNodeInformation(node);
+
+            File.WriteAllLines(filePath, Options.Prefix);
+
             if (ni != null)
             {
-                foreach (string i in Prefix) {
-               
+                foreach (string i in Options.Prefix)
+                {
+
                     if (ni.Name.ToUpper().StartsWith(i.ToUpper()))
                     {
-                        return ni.InvariantName.Replace("." + ni.Name, String.Empty) + '.' + i;
-                    }
-                    //if (ni.InvariantName.EndsWith("." + ni.Name))
-                    //    return ni.InvariantName.Replace("." + ni.Name, String.Empty);
-                }
 
-                return ni.InvariantName.Replace("." + ni.Name, String.Empty);
+                        return ni.UrnPath.Replace(ni.UrnPath, string.Empty) + i;
+                    }
+                    //if (ni.Parent.InvariantName == "StoredProcedures" && ni.Name.ToUpper().Contains(i.ToUpper()))
+                    //{
+
+                    //    return ni.UrnPath.Replace(ni.UrnPath, string.Empty) + i;
+                    //}
+                    //if (ni.Parent.InvariantName == "StoredProcedures" && ni.Name.ToUpper().Contains(i.ToUpper()))
+                    //{
+
+                    //    return ni.UrnPath.Replace(ni.UrnPath, string.Empty) + i;
+                    //}
+
+                }
+                return ni.InvariantName.Replace("." + ni.Name, string.Empty);
             }
+            
             return null;
         }
+       
+
+        
 
         /// <summary>
         /// Removes schema name from object node.
@@ -201,12 +186,17 @@ namespace SsmsSchemaFolders
                 if (childNode.Tag != null && childNode.Tag.ToString() == nodeTag)
                 {
                     if (!schemas.ContainsKey(childNode.Name))
-                        schemas.Add(childNode.Name, new List<TreeNode>());
+                    {
 
+
+                        //schemas.Add(childNode.Name, new List<TreeNode>());
+                        schemas.Add(childNode.Name, new List<TreeNode>());
+                    }
                     continue;
                 }
 
                 var schema = GetNodeSchema(childNode);
+               
 
                 if (string.IsNullOrEmpty(schema))
                     continue;
@@ -218,10 +208,12 @@ namespace SsmsSchemaFolders
                     if (Options.CloneParentNode)
                     {
                         schemaNode = new SchemaFolderTreeNode(node);
+                        
                         node.Nodes.Add(schemaNode);
                     }
                     else
                     {
+                        
                         schemaNode = node.Nodes.Add(schema);
                     }
 
@@ -243,6 +235,7 @@ namespace SsmsSchemaFolders
                         schemaNode.SelectedImageIndex = node.ImageIndex;
                     }
                 }
+               
 
                 //add node to schema list
                 List<TreeNode> schemaNodeList;
@@ -250,28 +243,39 @@ namespace SsmsSchemaFolders
                 {
                     schemaNodeList = new List<TreeNode>();
                     schemas.Add(schema, schemaNodeList);
+                
                 }
+              
+               
                 schemaNodeList.Add(childNode);
             }
 
             //debug_message(DateTime.Now.ToString("ss.fff"));
 
             //move nodes to schema node
+            //TestNode
             foreach (string schema in schemas.Keys)
             {
                 var schemaNode = node.Nodes[schema];
+                
                 foreach (TreeNode childNode in schemas[schema])
                 {
+
                     node.Nodes.Remove(childNode);
                     if (Options.RenameNode)
                     {
                         // Note: Node is renamed back to orginal after expanding.
                         RenameNode(childNode);
                     }
-                    schemaNode.Nodes.Add(childNode);
-                }
-            }
 
+
+                    
+                    schemaNode.Nodes.Add(childNode);
+                    
+                }
+                
+            }
+           
             node.TreeView.EndUpdate();
 
             //debug_message(DateTime.Now.ToString("ss.fff"));
@@ -295,6 +299,7 @@ namespace SsmsSchemaFolders
             }
         }
 
+       
     }
 
 }

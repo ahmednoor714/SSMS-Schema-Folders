@@ -22,7 +22,7 @@ namespace SsmsSchemaFolders.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace SsmsSchemaFolders.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SsmsSchemaFolders.Resources.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace SsmsSchemaFolders.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace SsmsSchemaFolders.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Active.
         /// </summary>
-        internal static string PropertyCategorySchemaFolderOptionsActive {
+        public static string PropertyCategorySchemaFolderOptionsActive {
             get {
                 return ResourceManager.GetString("PropertyCategorySchemaFolderOptionsActive", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace SsmsSchemaFolders.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Folder Display Options.
         /// </summary>
-        internal static string PropertyCategorySchemaFolderOptionsFolderDisplayOptions {
+        public static string PropertyCategorySchemaFolderOptionsFolderDisplayOptions {
             get {
                 return ResourceManager.GetString("PropertyCategorySchemaFolderOptionsFolderDisplayOptions", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace SsmsSchemaFolders.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Object Display Options.
         /// </summary>
-        internal static string PropertyCategorySchemaFolderOptionsObjectDisplayOptions {
+        public static string PropertyCategorySchemaFolderOptionsObjectDisplayOptions {
             get {
                 return ResourceManager.GetString("PropertyCategorySchemaFolderOptionsObjectDisplayOptions", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace SsmsSchemaFolders.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Add a dot after the schema name on the folder label..
         /// </summary>
-        internal static string PropertyDescriptionSchemaFolderOptionsAppendDot {
+        public static string PropertyDescriptionSchemaFolderOptionsAppendDot {
             get {
                 return ResourceManager.GetString("PropertyDescriptionSchemaFolderOptionsAppendDot", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace SsmsSchemaFolders.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Add the right click and connection properties of the parent node to the schema folder node..
         /// </summary>
-        internal static string PropertyDescriptionSchemaFolderOptionsCloneParentNode {
+        public static string PropertyDescriptionSchemaFolderOptionsCloneParentNode {
             get {
                 return ResourceManager.GetString("PropertyDescriptionSchemaFolderOptionsCloneParentNode", resourceCulture);
             }
@@ -108,34 +108,34 @@ namespace SsmsSchemaFolders.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Group sql objects in Object Explorer (tables, views, etc.) into schema folders..
         /// </summary>
-        internal static string PropertyDescriptionSchemaFolderOptionsEnabled {
+        public static string PropertyDescriptionSchemaFolderOptionsEnabled {
             get {
                 return ResourceManager.GetString("PropertyDescriptionSchemaFolderOptionsEnabled", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to prefix desc.
+        /// </summary>
+        public static string PropertyDescriptionSchemaFolderOptionsPrefix {
+            get {
+                return ResourceManager.GetString("PropertyDescriptionSchemaFolderOptionsPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove the schema name from the object node..
         /// </summary>
-        internal static string PropertyDescriptionSchemaFolderOptionsRenameNode {
+        public static string PropertyDescriptionSchemaFolderOptionsRenameNode {
             get {
                 return ResourceManager.GetString("PropertyDescriptionSchemaFolderOptionsRenameNode", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This is a test desc.
-        /// </summary>
-        internal static string PropertyDescriptionSchemaFolderOptionsTestNode {
-            get {
-                return ResourceManager.GetString("PropertyDescriptionSchemaFolderOptionsTestNode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Use the icon of the last child node as the folder icon. If false then use the parent node (i.e. folder) icon..
         /// </summary>
-        internal static string PropertyDescriptionSchemaFolderOptionsUseObjectIcon {
+        public static string PropertyDescriptionSchemaFolderOptionsUseObjectIcon {
             get {
                 return ResourceManager.GetString("PropertyDescriptionSchemaFolderOptionsUseObjectIcon", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace SsmsSchemaFolders.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Append Dot.
         /// </summary>
-        internal static string PropertyDisplayNameSchemaFolderOptionsAppendDot {
+        public static string PropertyDisplayNameSchemaFolderOptionsAppendDot {
             get {
                 return ResourceManager.GetString("PropertyDisplayNameSchemaFolderOptionsAppendDot", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace SsmsSchemaFolders.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Clone Parent Node.
         /// </summary>
-        internal static string PropertyDisplayNameSchemaFolderOptionsCloneParentNode {
+        public static string PropertyDisplayNameSchemaFolderOptionsCloneParentNode {
             get {
                 return ResourceManager.GetString("PropertyDisplayNameSchemaFolderOptionsCloneParentNode", resourceCulture);
             }
@@ -162,34 +162,34 @@ namespace SsmsSchemaFolders.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enabled.
         /// </summary>
-        internal static string PropertyDisplayNameSchemaFolderOptionsEnabled {
+        public static string PropertyDisplayNameSchemaFolderOptionsEnabled {
             get {
                 return ResourceManager.GetString("PropertyDisplayNameSchemaFolderOptionsEnabled", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Prefix.
+        /// </summary>
+        public static string PropertyDisplayNameSchemaFolderOptionsPrefix {
+            get {
+                return ResourceManager.GetString("PropertyDisplayNameSchemaFolderOptionsPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rename Node.
         /// </summary>
-        internal static string PropertyDisplayNameSchemaFolderOptionsRenameNode {
+        public static string PropertyDisplayNameSchemaFolderOptionsRenameNode {
             get {
                 return ResourceManager.GetString("PropertyDisplayNameSchemaFolderOptionsRenameNode", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Test Node .
-        /// </summary>
-        internal static string PropertyDisplayNameSchemaFolderOptionsTestNode {
-            get {
-                return ResourceManager.GetString("PropertyDisplayNameSchemaFolderOptionsTestNode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Use Object Icon.
         /// </summary>
-        internal static string PropertyDisplayNameSchemaFolderOptionsUseObjectIcon {
+        public static string PropertyDisplayNameSchemaFolderOptionsUseObjectIcon {
             get {
                 return ResourceManager.GetString("PropertyDisplayNameSchemaFolderOptionsUseObjectIcon", resourceCulture);
             }

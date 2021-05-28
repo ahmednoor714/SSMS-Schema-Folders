@@ -1,4 +1,7 @@
 ﻿
+using System.Collections.Generic;
+using System.Windows.Forms;
+
 namespace SsmsSchemaFolders
 {
     public interface ISchemaFolderOptions
@@ -8,6 +11,8 @@ namespace SsmsSchemaFolders
         bool CloneParentNode { get; }
         bool UseObjectIcon { get; }
         bool RenameNode { get; }
-        string TestNode { get; }
+        //List<string> TestNode { get; set; }
+        string[] Prefix { get;  }
+
     }
 }

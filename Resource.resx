@@ -117,49 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PropertyCategorySchemaFolderOptionsActive" xml:space="preserve">
-    <value>Active</value>
-  </data>
-  <data name="PropertyCategorySchemaFolderOptionsFolderDisplayOptions" xml:space="preserve">
-    <value>Folder Display Options</value>
-  </data>
-  <data name="PropertyCategorySchemaFolderOptionsObjectDisplayOptions" xml:space="preserve">
-    <value>Object Display Options</value>
-  </data>
-  <data name="PropertyDescriptionSchemaFolderOptionsAppendDot" xml:space="preserve">
-    <value>Add a dot after the schema name on the folder label.</value>
-  </data>
-  <data name="PropertyDescriptionSchemaFolderOptionsCloneParentNode" xml:space="preserve">
-    <value>Add the right click and connection properties of the parent node to the schema folder node.</value>
-  </data>
-  <data name="PropertyDescriptionSchemaFolderOptionsEnabled" xml:space="preserve">
-    <value>Group sql objects in Object Explorer (tables, views, etc.) into schema folders.</value>
-  </data>
-  <data name="PropertyDescriptionSchemaFolderOptionsPrefix" xml:space="preserve">
-    <value>prefix desc</value>
-  </data>
-  <data name="PropertyDescriptionSchemaFolderOptionsRenameNode" xml:space="preserve">
-    <value>Remove the schema name from the object node.</value>
-  </data>
-  <data name="PropertyDescriptionSchemaFolderOptionsUseObjectIcon" xml:space="preserve">
-    <value>Use the icon of the last child node as the folder icon. If false then use the parent node (i.e. folder) icon.</value>
-  </data>
-  <data name="PropertyDisplayNameSchemaFolderOptionsAppendDot" xml:space="preserve">
-    <value>Append Dot</value>
-  </data>
-  <data name="PropertyDisplayNameSchemaFolderOptionsCloneParentNode" xml:space="preserve">
-    <value>Clone Parent Node</value>
-  </data>
-  <data name="PropertyDisplayNameSchemaFolderOptionsEnabled" xml:space="preserve">
-    <value>Enabled</value>
-  </data>
-  <data name="PropertyDisplayNameSchemaFolderOptionsPrefix" xml:space="preserve">
-    <value>Prefix</value>
-  </data>
-  <data name="PropertyDisplayNameSchemaFolderOptionsRenameNode" xml:space="preserve">
-    <value>Rename Node</value>
-  </data>
-  <data name="PropertyDisplayNameSchemaFolderOptionsUseObjectIcon" xml:space="preserve">
-    <value>Use Object Icon</value>
+  <data name="txtFile" xml:space="preserve">
+    <value>Prefix.txt</value>
   </data>
 </root>
